@@ -1,0 +1,56 @@
+<body class="text-center">
+  <main class="form-signin w-100 m-auto">
+    <form [formGroup]="registerForm">
+      <h1 class="h3 mb-3 fw-normal">Kayit Ol</h1>
+
+      <div class="form-floating">
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control mt-3"
+          id="floatingInput"
+          placeholder="name"
+        />
+        <label for="floatingInput">İsim</label>
+      </div>
+      <div class="form-floating">
+        <input
+          formControlName="surname"
+          type="text"
+          class="form-control mt-3"
+          id="floatingInput"
+          placeholder="surnaname"
+        />
+        <label for="floatingInput">Soyisim</label>
+      </div>
+      <div class="form-floating">
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control mt-3"
+          id="floatingPassword"
+          placeholder="Password"
+        />
+        <label for="floatingPassword">Parola</label>
+      </div>
+      <div class="form-floating">
+        <input
+          formControlName="verifyPassword"
+          type="password"
+          class="form-control mt-3"
+          id="floatingPassword"
+          placeholder="Password"
+        />
+        <label for="floatingPassword">Parola Tekrar</label>
+      </div>
+      <button
+        class="w-100 btn btn-lg btn-primary mt-5"
+        type="submit"
+        (click)="register()"
+      >
+        Kayit Ol
+      </button>
+      <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+    </form>
+  </main>
+</body>

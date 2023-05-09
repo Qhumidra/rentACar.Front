@@ -1,0 +1,29 @@
+<div *ngFor="let cartItem of cartItems">
+  <div  class="row mt-10">
+    <div
+      class="col-md-8 mx-auto my-20"
+      style="background-color: rgb(245, 245, 245)"
+    >
+      <img
+        src="{{ cartItem.car.imgPath }}"
+        class="card-img-top mt-2"
+        alt="..."
+      />
+      <div class="card-body">
+        <h2 class="card-title">
+          {{ cartItem.car.description }} Kiralik Araclar
+        </h2>
+        <h5 class="card-text">
+          {{ cartItem.car.brand }} - {{ cartItem.car.model }} -
+          {{ cartItem.car.age }}
+        </h5>
+
+
+        <h6>
+          <a routerLink="/araba-kirala" class="btn btn-primary">Kirala</a>
+          Gunluk {{ cartItem.car.price }} TL
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>

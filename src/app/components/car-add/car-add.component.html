@@ -1,0 +1,91 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header"><h5 class="title">Araba Ekle</h5></div>
+      <div class="body">
+        <form [formGroup]="carAddForm">
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="brand">Marka</label>
+              <input
+                type="text"
+                id="brand"
+                formControlName="brand"
+                class="form-control mt-3"
+                placeholder="Marka"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="brand">Model</label>
+              <input
+                type="text"
+                id="model"
+                formControlName="model"
+                class="form-control mt-3"
+                placeholder="Model"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="brand">Kategori</label>
+              <select
+                class="form-select mt-3"
+                aria-label="Default select example"
+                formControlName="categoryId"
+              >
+                <option
+                  *ngFor="let category of categories"
+                  [ngValue]="category.id"                 
+                >{{ category.description }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="brand">Yil</label>
+              <input
+                type="text"
+                id="age"
+                formControlName="age"
+                class="form-control mt-3"
+                placeholder="Yil"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="brand">Ucreti</label>
+              <input
+                type="number"
+                id="price"
+                formControlName="price"
+                class="form-control mt-3"
+                placeholder="Gunluk Ucreti"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="brand">Fotografin Yolu</label>
+              <input
+                type="text"
+                id="imgPath"
+                formControlName="imgPath"
+                class="form-control mt-3"
+                placeholder="Eklenecek resimin url"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+      </div>
+    </div>
+  </div>
+</div>

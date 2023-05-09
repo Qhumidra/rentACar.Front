@@ -1,0 +1,32 @@
+<table *ngIf="dataLoaded == true" class="table">
+  <thead>
+    <tr>
+      <th>Marka</th>
+      <th>Model</th>
+      <th>Kategori</th>
+      <th>Yasi</th>
+      <th>Gunluk Ucreti</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of cars">
+      <td>{{ car.brand | uppercase }}</td>
+      <td>{{ car.model | uppercase }}</td>
+      <td>{{ car.description | uppercase }}</td>
+      <td>{{ car.age | uppercase }}</td>
+      <td>{{ car.price }} TL</td>
+      <td>
+        <button routerLink="/cars/update" (click)="getCurrentCar(car)" router type="button" class="btn btn-warning">
+          Guncelle
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger">
+          Kaldir
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,92 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h5 class="title">Araba Guncelle</h5></div>
+        <div class="body">
+          <form [formGroup]="carUpdateForm">
+            <div class="mb-3">
+              <div class="form-group">
+                <label for="brand">Marka</label>
+                <input
+                  type="text"
+                  id="brand"
+                  formControlName="brand"
+                  class="form-control mt-3"
+                  placeholder="{{car.brand}}"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-group">
+                <label for="brand">Model</label>
+                <input
+                  type="text"
+                  id="model"
+                  formControlName="model"
+                  class="form-control mt-3"
+                  placeholder="{{car.model}}"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-group">
+                <label for="brand">Kategori</label>
+                <select
+                  class="form-select mt-3"
+                  aria-label="Default select example"
+                  formControlName="categoryId"
+                >
+                  <option
+                    *ngFor="let category of categories"
+                    [ngValue]="category.id"                 
+                  >{{ category.description }}
+                  </option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <div class="form-group">
+                <label for="brand">Yil</label>
+                <input
+                  type="text"
+                  id="age"
+                  formControlName="age"
+                  class="form-control mt-3"
+                  placeholder="{{car.age}}"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-group">
+                <label for="brand">Ucreti</label>
+                <input
+                  type="number"
+                  id="price"
+                  formControlName="price"
+                  class="form-control mt-3"
+                  placeholder="{{car.price}}"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-group">
+                <label for="brand">Fotografin Yolu</label>
+                <input
+                  type="text"
+                  id="imgPath"
+                  formControlName="imgPath"
+                  class="form-control mt-3"
+                  placeholder="{{car.imgPath}}"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-fill btn-warning" routerLink="/cars/list" (click)="update()">Guncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

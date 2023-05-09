@@ -1,0 +1,30 @@
+<table *ngIf="dataLoaded==true" class="table">
+    <thead>
+      <tr>
+        <th>Musteri Adi</th>
+        <th>Musteri Soyadi</th>
+        <th>Araba Markasi</th>
+        <th>Araba Modeli</th>
+        <th>Odeme Turu</th>
+        <th>Fiyat</th>
+        <th>Alis Tarihi</th>
+        <th>Teslim Tarihi</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rent of rentList">
+        <td>{{ rent.name | uppercase}}</td>
+        <td>{{ rent.surname | uppercase}}</td>
+        <td>{{ rent.brand | uppercase}}</td>
+        <td>{{ rent.model | uppercase}}</td>
+        <td>{{ rent.paymentType | uppercase}}</td>
+        <td>{{ rent.price }} TL</td>
+        <td>{{ rent.issueDate }}</td>
+        <td>{{ rent.purchaseDate }}</td>
+        <td><button  
+          type="button" class="btn btn-success">Guncelle</button></td>
+      </tr>
+    </tbody>
+    
+  </table>

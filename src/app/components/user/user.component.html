@@ -1,0 +1,60 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h5 class="title"> Kullanici </h5></div>
+        <div class="body">
+          <form >
+            <div class="mb-1">
+              <div class="form-group">
+                <label for="name">Isim</label>
+                <input class="form-control  mt-3" type="text" value="{{user.name}}" aria-label="name" disabled readonly>
+              </div>
+            </div>
+            <div class="mb-1">
+              <div class="form-group">
+                <label for="surname">Soyisim</label>
+                <input class="form-control  mt-3" type="text" value="{{user.surname}}" aria-label="surname" disabled readonly>
+            </div>
+
+            <h5>Adres</h5>
+            <hr>
+            <div class="mt-8">
+              <div class="form-group">
+                <label for="sokak">Sokak</label>
+                <input class="form-control  mt-3" type="text" value="{{user.sokak}}" aria-label="sokak" disabled readonly>
+              </div>
+            </div>
+            <div class="mt-8">
+                <div class="form-group">
+                  <label for="mahalle">Mahalle</label>
+                  <input class="form-control  mt-3" type="text" value="{{user.mahalle}}" aria-label="mahalle" disabled readonly>
+                </div>
+              </div>
+              <div class="mt-8">
+                <div class="form-group">
+                  <label for="ilce">İlce</label>
+                  <input class="form-control  mt-3" type="text" value="{{user.ilce}}" aria-label="ilce" disabled readonly>
+                </div>
+              </div>
+             <div class="mt-8">
+                <div class="form-group">
+                  <label for="il">İl</label>
+                  <input class="form-control  mt-3" type="text" value="{{user.il}}" aria-label="il" disabled readonly>
+                </div>
+              </div>
+              <div class="mt-8">
+                <div class="form-group">
+                  <label for="adresNotu">Adres Notu</label>
+                  <input class="form-control  mt-3" type="text" value="{{user.adresNotu}}" aria-label="adresNotu" disabled readonly>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-fill btn-primary" routerLink="/user-update">Bilgilerini Guncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
