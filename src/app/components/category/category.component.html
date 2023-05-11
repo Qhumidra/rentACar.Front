@@ -1,12 +1,12 @@
 <ul  class="nav justify-content-center">
-  <li class="nav-link" 
-  [style]="getAllCategoryClass()"
+  <li class="btn btn-primary" 
+  [style]="getAllCategoryClass()" style="color:black"
    routerLink="/cars">Kiralik Arabalar</li>
 
   <li  (click)="setCurrentCategory(category)"
   routerLink="/cars/category/{{category.id}}"
-   *ngFor="let category of categories"  class="nav-link"
-    [style]="getCurrentCategoryClass(category)">{{category.description}} Arabalar
+   *ngFor="let category of categories"  class="btn btn-primary"
+    [style]="getCurrentCategoryClass(category)" style="color:black">{{category.description}} Arabalar
   </li>
 
 </ul>

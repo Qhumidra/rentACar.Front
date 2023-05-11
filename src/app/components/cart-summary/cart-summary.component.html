@@ -1,5 +1,5 @@
-<div *ngFor="let cartItem of cartItems">
-  <div  class="row mt-10">
+<div>
+  <div class="row mt-10">
     <div
       class="col-md-8 mx-auto my-20"
       style="background-color: rgb(245, 245, 245)"
@@ -17,12 +17,50 @@
           {{ cartItem.car.brand }} - {{ cartItem.car.model }} -
           {{ cartItem.car.age }}
         </h5>
+         <form [formGroup]="cartAddForm">
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="paymentType">Odeme Turu</label>
+              <select
+                class="form-select mt-3"
+                aria-label="Default select example"
+                formControlName="paymentType"
+              >
+                <option selected [ngValue]="'Nakit'" >Nakit</option>
+                <option [ngValue]="'Kredi Karti'">Kredi Karti</option>
+              </select>
+            </div>
+          </div>
 
-
-        <h6>
-          <a routerLink="/araba-kirala" class="btn btn-primary">Kirala</a>
-          Gunluk {{ cartItem.car.price }} TL
-        </h6>
+         <div class="mt-8">
+            <div class="form-group">
+              <label for="teslimAlis">Teslim Alis Tarihi</label>
+              <input
+                type="datetime-local"
+                id="IssueDate"
+                formControlName="issueDate"
+                class="form-control mt-3"
+              />
+            </div>
+          </div>
+          <div class="mt-8">
+            <div class="form-group">
+              <label for="teslimVeris">Teslim Veris Tarihi</label>
+              <input
+                type="datetime-local"
+                id="purchaseDate"
+                formControlName="purchaseDate"
+                class="form-control mt-3"
+                placeholder="Teslim Tarih"
+              />
+            </div>
+          </div> 
+         </form> 
+          <h6 class="mt-3">
+            <a routerLink="/cars" (click)="add()" class="btn btn-primary">Kirala</a>
+            <label
+            > Gunluk {{ cartItem.car.price }} TL </label>
+          </h6>
       </div>
     </div>
   </div>

@@ -30,10 +30,16 @@ export class AuthService {
       return false;
     }
   }
+
+  autoLogOut(expirationDate:number){
+    setTimeout(()=>{
+      this.logOut();
+    },expirationDate)
+  }
+
   logOut(){
     if(localStorage.getItem('token')){
-      localStorage.removeItem('token');
-      localStorage.removeItem('userName');
+      localStorage.clear();
       return true;
     }else{
       return false;

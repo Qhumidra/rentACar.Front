@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-car',
@@ -16,8 +17,13 @@ export class CarComponent implements OnInit {
   constructor(
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
-    private cartService: CartService
-  ) {}
+    private cartService: CartService,
+    private userService:UserService
+  ) {
+    this.userService.getUser(localStorage.getItem("userName")).subscribe((response)=>{
+      localStorage.setItem("userId",response.id.toString());
+    });
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -42,6 +48,8 @@ export class CarComponent implements OnInit {
   }
 
   addToCart(car: Car) {
+    localStorage.setItem("carId",car.id.toString());
+    localStorage.setItem("carPrice",car.price.toString());
     this.cartService.addToCart(car);
   }
 }

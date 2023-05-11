@@ -6,10 +6,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { UserModel } from 'src/app/models/userModel';
-import { UserRolesModel } from 'src/app/models/userRoleModel';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +15,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  userModel: UserModel;
-  roleModel: UserRolesModel;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private userService: UserService,
     private toastrService: ToastrService
   ) {}
 
@@ -44,6 +38,8 @@ export class LoginComponent implements OnInit {
         (response) => {
           this.toastrService.success('Basariyla Giris Yapildi.');
           localStorage.setItem('token', response.token);
+          localStorage.setItem('role', response.role);
+          localStorage.setItem('expirationTimeOut', response.expiration);
           localStorage.setItem('userName', this.loginForm.value.name);
         },
         (responseError) => {
@@ -53,5 +49,4 @@ export class LoginComponent implements OnInit {
       );
     }
   }
-
 }

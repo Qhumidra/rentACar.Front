@@ -1,47 +1,76 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/cars">Araba Kirala</a>
-          </li>
-          <li class="nav-item" [hidden]="!isAuthenticate()">
-            <a class="nav-link active " aria-current="page" routerLink="/kiralik-listesi">Liste</a>
-          </li>
-          <li class="nav-item" [hidden]="!isAuthenticate()">
-            <a class="nav-link active " aria-current="page"  routerLink="/cars/add">Araba Ekle</a>
-          </li>
-          <li class="nav-item" [hidden]="!isAuthenticate()">
-            <a class="nav-link active " aria-current="page"  routerLink="/cars/list">Araba Listesi</a>
-          </li>
-          <li class="nav-item" [hidden]="!isAuthenticate()">
-            <a class="nav-link active " aria-current="page"  routerLink="/user-detail">Kullanici</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-        </ul>
-        <ul class="d-flex mt-3" role="search">
-          <li class="btn btn-primary me-2" [hidden]="isAuthenticate()" type="submit" routerLink="/login" >Giris Yap</li>
-          <li class="btn btn-danger" [hidden]="!isAuthenticate()" type="submit" (click)="logOut()" routerLink="">Cikis Yap</li>
-          <li class="btn btn-primary" [hidden]="isAuthenticate()" type="submit" routerLink="/register">Kayit Ol</li>         
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/cars"
+            >Araba Kirala</a
+          >
+        </li>
+        <li class="nav-item" [hidden]="!isAuthenticate()">
+          <a class="nav-link active" aria-current="page" routerLink="/rented/1"
+            >Liste
+          </a>
+        </li>
+        <li class="nav-item" [hidden]="!isAuthenticate()">
+          <a class="nav-link active" aria-current="page" routerLink="/cars/add"
+            >Araba Ekle</a
+          >
+        </li>
+        <li class="nav-item" [hidden]="!isAuthenticate()">
+          <a class="nav-link active" aria-current="page" routerLink="/cars/list"
+            >Araba Listesi</a
+          >
+        </li>
+        <li class="nav-item" [hidden]="!isAuthenticate()">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/user-detail"
+            >Kullanici</a
+          >
+        </li>
+      </ul>
+      <ul class="d-flex mt-3" role="search">
+        <li
+          class="btn btn-primary me-2"
+          [hidden]="isAuthenticate()"
+          type="submit"
+          routerLink="/login"
+        >
+          Giris Yap
+        </li>
+        <li
+          class="btn btn-danger"
+          [hidden]="!isAuthenticate()"
+          type="submit"
+          (click)="logOut()"
+          routerLink=""
+        >
+          Cikis Yap
+        </li>
+        <li
+          class="btn btn-primary"
+          [hidden]="isAuthenticate()"
+          type="submit"
+          routerLink="/register"
+        >
+          Kayit Ol
+        </li>
+      </ul>
     </div>
-  </nav>
-  <hr>
+  </div>
+</nav>
+<hr />

@@ -8,4 +8,5 @@ export interface Rent{
     price:number;
     issueDate:Date
     purchaseDate:Date
+    status:string
 }

@@ -15,4 +15,9 @@ export class RentService {
     let newPath = this.apiUrl;
    return this.httpClient.get<Rent[]>(newPath);
   }
+
+  getListByCategory(categoryId:number):Observable<Rent[]>{
+    let newPath = this.apiUrl + "/getlistbycategory?id="+categoryId
+    return this.httpClient.get<Rent[]>(newPath);
+  }
 }

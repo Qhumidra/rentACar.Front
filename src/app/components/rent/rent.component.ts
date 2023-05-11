@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Rent } from 'src/app/models/rent';
 import { RentService } from 'src/app/services/rent.service';
 
@@ -11,15 +12,17 @@ export class RentComponent implements OnInit{
 rentList : Rent []= [];
 dataLoaded = false;
 
-constructor(private rentService:RentService) {}
+constructor(private rentService:RentService,private activatedRoute:ActivatedRoute) {}
 
 ngOnInit(): void {
-  this.getRentList();
-}
+  this.activatedRoute.params.subscribe((params) => {
+      this.getListByCategory(params['id']);
+  });}
 
-getRentList() {
-  this.rentService.getRentList().subscribe((response) => {
+getListByCategory(rentCategoryId: number) {
+  this.rentService.getListByCategory(rentCategoryId).subscribe((response) => {
     this.rentList = response;
     this.dataLoaded = true;
   });
-}}
+}
+}

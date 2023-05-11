@@ -18,9 +18,9 @@ export class UserComponent implements OnInit {
   }
 
   get() {
-    this.userService
+      this.userService
       .getUser(localStorage.getItem('userName'))
-      .subscribe((response) => {
+      .subscribe((response) => {        
         this.user = response;
       });
   }

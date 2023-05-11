@@ -1,0 +1,11 @@
+<ul  class="nav justify-content-center">
+
+    <li  (click)="setCurrentCategory(category)"
+    routerLink="/rented/{{category.id}}"
+     *ngFor="let category of categories"  class="btn btn-danger me-2"
+      [style]="getCurrentCategoryClass(category) ">{{category.name}}
+    </li>
+  
+  </ul>
+  
+  <h6 *ngIf="currentCategory">{{currentCategory.name}}</h6>

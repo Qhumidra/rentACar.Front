@@ -10,8 +10,7 @@ import { UserRolesModel } from '../models/userRoleModel';
 })
 export class UserService {
   apiUrl = 'http://localhost:5280/api/users';
-  userModel: UserModel;
-  role: UserRolesModel;
+  
   constructor(private httpClient: HttpClient) {}
 
   getUser(userName: string): Observable<UserModel> {
@@ -20,13 +19,6 @@ export class UserService {
     );
   }
 
-  getUserRole(id: number):Observable<UserRolesModel>{
-
-     return this.httpClient
-        .get<UserRolesModel>(
-          this.apiUrl + '/getrolesbyid?id=' + id
-        );    
-  }
 
   updateUser(userUpdateModel: UserUpdateModel) {
     return this.httpClient.post(this.apiUrl + '/updateuser', userUpdateModel);

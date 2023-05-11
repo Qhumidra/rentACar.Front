@@ -15,10 +15,12 @@ export class CarService {
     let newPath = this.apiUrl + "/getlist"
    return this.httpClient.get<Car[]>(newPath);
   }
+  
   getCarsByCategory(categoryId:number):Observable<Car[]>{
     let newPath = this.apiUrl + "/getbycategory?id="+categoryId
     return this.httpClient.get<Car[]>(newPath);
   }
+
   getCarById(id:number):Observable<Car>{
     let newPath = this.apiUrl + "/getbyid?id="+id
     return this.httpClient.get<Car>(newPath);
@@ -28,8 +30,10 @@ export class CarService {
     let newPath = this.apiUrl + "/add"
     return this.httpClient.post(newPath,car);
   }
+
   update(car:Car){
     let newPath = this.apiUrl + "/update"
     return this.httpClient.post(newPath,car);
   }
+
 }

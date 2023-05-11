@@ -1,3 +1,6 @@
+<app-rent-category></app-rent-category>
+
+
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
       <tr>
@@ -9,6 +12,7 @@
         <th>Fiyat</th>
         <th>Alis Tarihi</th>
         <th>Teslim Tarihi</th>
+        <th>Durum</th>
         <th></th>
       </tr>
     </thead>
@@ -22,6 +26,7 @@
         <td>{{ rent.price }} TL</td>
         <td>{{ rent.issueDate }}</td>
         <td>{{ rent.purchaseDate }}</td>
+        <th>{{rent.status}}</th>
         <td><button  
           type="button" class="btn btn-success">Guncelle</button></td>
       </tr>

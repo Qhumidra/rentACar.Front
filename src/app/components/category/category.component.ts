@@ -33,14 +33,14 @@ export class CategoryComponent implements OnInit {
     else{
      return "background-color: azure";
     }
-  }
-
-  getAllCategoryClass(){
+    }
+    
+    getAllCategoryClass(){
     if(!this.currentCategory){
       return "background-color: rgb(166, 230, 230)";
     }
     else{
      return "background-color: azure";
     }
-  }
+    }
 }

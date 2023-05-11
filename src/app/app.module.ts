@@ -22,6 +22,8 @@ import { UserComponent } from './components/user/user.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { RentCategoryComponent } from './components/rent-category/rent-category.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
     UserComponent,
     UserUpdateComponent,
     CarListComponent,
-    CarUpdateComponent
+    CarUpdateComponent,
+    RentCategoryComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,    
