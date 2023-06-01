@@ -23,10 +23,11 @@ export class CarAddComponent implements OnInit {
     private formBuilder: FormBuilder,
     private carService: CarService,
     private categoryService : CategoryService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {}
 
   ngOnInit(): void {
+    
     this.createCarAddForm();
     this.getCategories();
   }
@@ -44,7 +45,6 @@ export class CarAddComponent implements OnInit {
   add() {
     if (this.carAddForm.valid) {
       let carModel = Object.assign({}, this.carAddForm.value);
-      console.log(this.carAddForm.value.categoryId);
       this.carService.add(carModel).subscribe((response) => {
         this.toastrService.success('Araba Eklendi.', 'Basarili');
       });

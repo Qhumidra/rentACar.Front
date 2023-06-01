@@ -31,7 +31,7 @@ export class AuthService {
     }
   }
 
-  autoLogOut(expirationDate:number){
+  autoLogOut(expirationDate:any){
     setTimeout(()=>{
       this.logOut();
     },expirationDate)

@@ -18,11 +18,13 @@ export class CarComponent implements OnInit {
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
     private cartService: CartService,
-    private userService:UserService
+    private userService: UserService
   ) {
-    this.userService.getUser(localStorage.getItem("userName")).subscribe((response)=>{
-      localStorage.setItem("userId",response.id.toString());
-    });
+    this.userService
+      .getUser(localStorage.getItem('userName'))
+      .subscribe((response) => {
+        sessionStorage.setItem('userId', response.id.toString());
+      });
   }
 
   ngOnInit(): void {
@@ -48,8 +50,8 @@ export class CarComponent implements OnInit {
   }
 
   addToCart(car: Car) {
-    localStorage.setItem("carId",car.id.toString());
-    localStorage.setItem("carPrice",car.price.toString());
+    sessionStorage.setItem('carId', car.id.toString());
+    sessionStorage.setItem('carPrice', car.price.toString());
     this.cartService.addToCart(car);
   }
 }

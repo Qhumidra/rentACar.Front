@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from 'src/app/models/car';
+import { AuthService } from 'src/app/services/auth.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -11,8 +12,12 @@ export class CarListComponent implements OnInit {
   cars: Car[] = [];
   dataLoaded = false;
 
-  constructor(private carService: CarService) {}
+  constructor(
+    private carService: CarService,
+  ) {}
+  
   ngOnInit(): void {
+
     this.getCars();
   }
   getCars() {
@@ -21,7 +26,7 @@ export class CarListComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
-  getCurrentCar(car:Car){
-    localStorage.setItem("currentCarId",car.id.toString());
+  getCurrentCar(car: Car) {
+    localStorage.setItem('currentCarId', car.id.toString());
   }
 }

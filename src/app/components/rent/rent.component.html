@@ -1,35 +1,53 @@
 <app-rent-category></app-rent-category>
 
-
-<table *ngIf="dataLoaded==true" class="table">
-    <thead>
-      <tr>
-        <th>Musteri Adi</th>
-        <th>Musteri Soyadi</th>
-        <th>Araba Markasi</th>
-        <th>Araba Modeli</th>
-        <th>Odeme Turu</th>
-        <th>Fiyat</th>
-        <th>Alis Tarihi</th>
-        <th>Teslim Tarihi</th>
-        <th>Durum</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let rent of rentList">
-        <td>{{ rent.name | uppercase}}</td>
-        <td>{{ rent.surname | uppercase}}</td>
-        <td>{{ rent.brand | uppercase}}</td>
-        <td>{{ rent.model | uppercase}}</td>
-        <td>{{ rent.paymentType | uppercase}}</td>
-        <td>{{ rent.price }} TL</td>
-        <td>{{ rent.issueDate }}</td>
-        <td>{{ rent.purchaseDate }}</td>
-        <th>{{rent.status}}</th>
-        <td><button  
-          type="button" class="btn btn-success">Guncelle</button></td>
-      </tr>
-    </tbody>
-    
-  </table>
+<table *ngIf="dataLoaded == true" class="table">
+  <thead>
+    <tr>
+      <th>Siparis Numarasi</th>
+      <th>Musteri Adi</th>
+      <th>Musteri Soyadi</th>
+      <th>Araba Markasi</th>
+      <th>Araba Modeli</th>
+      <th>Odeme Turu</th>
+      <th>Fiyat</th>
+      <th>Alis Tarihi</th>
+      <th>Teslim Tarihi</th>
+      <th>Durum</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rent of rentList">
+      <td>{{ rent.id }}</td>
+      <td>{{ rent.name | uppercase }}</td>
+      <td>{{ rent.surname | uppercase }}</td>
+      <td>{{ rent.brand | uppercase }}</td>
+      <td>{{ rent.model | uppercase }}</td>
+      <td>{{ rent.paymentType | uppercase }}</td>
+      <td>{{ rent.price }} TL</td>
+      <td>{{ rent.issueDate | date }}</td>
+      <td>{{ rent.purchaseDate | date }}</td>
+      <th>{{ rent.status | uppercase }}</th>
+      <td>
+        <a
+          (click)="updateStatus(rent.id, 2)"
+          type="button"
+          *ngIf="categoryId == 1"
+          class="btn btn-success"
+        >
+          Musteride
+        </a>
+      </td>
+      <td>
+        <button
+          (click)="updateStatus(rent.id, 3)"
+          type="button"
+          *ngIf="categoryId == 2"
+          class="btn btn-warning"
+        >
+          Teslim Alindi
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

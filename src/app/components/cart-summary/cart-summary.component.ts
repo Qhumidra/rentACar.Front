@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CartItem } from 'src/app/models/cartItem';
 import { CartService } from 'src/app/services/cart.service';
@@ -10,48 +10,60 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart-summary.component.css'],
 })
 export class CartSummaryComponent implements OnInit {
-  cartAddForm:FormGroup;
+  cartAddForm: FormGroup;
   cartItem: CartItem;
+  calculatedPrice: number  = 0;
+  isVisible:boolean = false;
 
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
     private toastrService: ToastrService,
-
   ) {}
 
   ngOnInit(): void {
+
     this.createRentAddForm();
     this.getCart();
-
   }
 
-
-  createRentAddForm(){
+  createRentAddForm() {
     this.cartAddForm = this.formBuilder.group({
-      appUserId: [localStorage.getItem("userId")],
-      carId: [localStorage.getItem("carId")],
-      paymentType: [],
-      price: [Number(localStorage.getItem("carPrice"))],
-      issueDate: [],
-      purchaseDate: [],
-      statusId:[1]
-
-    })
+      appUserId: [sessionStorage.getItem('userId')],
+      carId: [sessionStorage.getItem('carId')],
+      paymentType: [, Validators.required],
+      price: [Number(sessionStorage.getItem('carPrice'))],
+      issueDate: [, Validators.required],
+      purchaseDate: [, Validators.required],
+      statusId: [1],
+    });
   }
 
-  add(){
+  add() {
+    let carModel = Object.assign({}, this.cartAddForm.value);
+
+    this.cartService.add(carModel).subscribe((response) => {
+      this.toastrService.success('Araba Eklendi.', 'Basarili');
+    });
+    this.isVisible = false;
+    sessionStorage.clear();
+  }
+
+  calculatePrice() {
     if (this.cartAddForm.valid) {
-      let carModel = Object.assign({}, this.cartAddForm.value);
-      console.log(carModel.appUserId);
-      this.cartService.add(carModel).subscribe((response) => {
-        this.toastrService.success('Araba Eklendi.', 'Basarili');
-      });
+      this.calculatedPrice =
+        ((new Date(this.cartAddForm.value.purchaseDate).getTime() -
+          new Date(this.cartAddForm.value.issueDate).getTime()) /
+          (1000 * 3600 * 24)) *
+        this.cartAddForm.value.price;
+      this.cartAddForm.value.price = this.calculatedPrice;
+      this.isVisible = true;
+    } else {
+      this.toastrService.error('Formunuz Eksik Kalmis', 'Duzelt onu arabiqa');
+      this.isVisible = false;
     }
-   else {
-    this.toastrService.error('Formunuz Eksik Kalmis', 'Duzelt onu arabiqa');
   }
-  }
+ 
 
   getCart() {
     this.cartItem = this.cartService.list();

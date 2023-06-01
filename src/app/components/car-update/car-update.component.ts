@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { Category } from 'src/app/models/category';
+import { AuthService } from 'src/app/services/auth.service';
 import { CarService } from 'src/app/services/car.service';
 import { CategoryService } from 'src/app/services/category.service';
 
@@ -21,10 +22,11 @@ export class CarUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private carService: CarService,
     private toastrService: ToastrService,
-    private categoryService:CategoryService
+    private categoryService:CategoryService,
   ) {}
 
   ngOnInit(): void {
+
     this.updateCarForm();
     this.getCategories(); 
     this.getCarById();

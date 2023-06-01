@@ -15,6 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  isLogin:boolean = false
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,10 +42,13 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('role', response.role);
           localStorage.setItem('expirationTimeOut', response.expiration);
           localStorage.setItem('userName', this.loginForm.value.name);
+          this.isLogin = true;
+          window.location.reload();
         },
         (responseError) => {
           console.log(responseError);
           this.toastrService.error('Kullanici Adi veya Sifre Hatali!');
+          this.isLogin = false;
         }
       );
     }

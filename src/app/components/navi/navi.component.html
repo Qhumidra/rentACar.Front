@@ -19,22 +19,22 @@
             >Araba Kirala</a
           >
         </li>
-        <li class="nav-item" [hidden]="!isAuthenticate()">
+        <li *ngIf="adminLogged || employeeLogged" class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/rented/1"
             >Liste
           </a>
         </li>
-        <li class="nav-item" [hidden]="!isAuthenticate()">
+        <li *ngIf="adminLogged || employeeLogged" class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/cars/add"
             >Araba Ekle</a
           >
         </li>
-        <li class="nav-item" [hidden]="!isAuthenticate()">
+        <li *ngIf="adminLogged || employeeLogged" class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/cars/list"
             >Araba Listesi</a
           >
         </li>
-        <li class="nav-item" [hidden]="!isAuthenticate()">
+        <li *ngIf="adminLogged || employeeLogged || customerLogged" class="nav-item" >
           <a
             class="nav-link active"
             aria-current="page"
